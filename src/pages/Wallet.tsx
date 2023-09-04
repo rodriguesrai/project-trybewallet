@@ -8,9 +8,8 @@ function Wallet() {
   return (
     <header>
       <p>
-        Bem-vindo,
-        {userEmail}
-
+        {`Bem-vindo, 
+        ${userEmail}`}
       </p>
     </header>
   );
