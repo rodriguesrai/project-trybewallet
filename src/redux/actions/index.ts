@@ -15,3 +15,10 @@ export const addExpense = (expense) => ({
   type: ADD_EXPENSE,
   payload: expense,
 });
+
+export const SET_CURRENCIES = 'SET_CURRENCIES';
+
+export const setCurrencies = (currencies) => ({
+  type: SET_CURRENCIES,
+  payload: currencies,
+});

@@ -1,40 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { addExpense } from '../redux/actions';
+import { RootState } from '../types';
+import useFetchCurrencies from './effects/fetchCurrencies';
 
 function WalletForm() {
   const dispatch = useDispatch();
   const [expense, setExpense] = useState({
     value: '',
     description: '',
-    currency: 'dinheiro',
-    method: 'dinheiro',
-    tag: 'alimentacao',
+    currency: 'USD',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
   });
-  const [id, setId] = useState(1);
-  const [currencies, setCurrencies] = useState<{
-    currency: string; label: string; }[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-        const data = await response.json();
-
-        const currenciesInf = Object.keys(data).filter((currency) => currency !== 'USDT');
-
-        const currencyOptions = currenciesInf.map((currency) => ({
-          currency,
-          label: currency,
-        }));
-        setCurrencies(currencyOptions);
-      } catch (error) {
-        console.error('Erro na solicitação à API:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  // const [id, setId] = useState(1);
+  useFetchCurrencies();
+  const currencies = useSelector((state: RootState) => state.wallet.currencies);
 
   type TargetType = React.
     ChangeEvent<HTMLInputElement | HTMLSelectElement >;
@@ -48,30 +29,33 @@ function WalletForm() {
   };
   const handleClick = () => {
     const newExpense = {
-      id,
-      ...expense,
+      value: expense.value,
+      currency: expense.currency,
+      method: expense.method,
+      tag: expense.tag,
+      description: expense.description,
     };
     dispatch(addExpense(newExpense));
-    setId(id + 1);
     setExpense({
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     });
   };
-
   return (
     <div>
       <input
-        type="value"
+        type="number"
+        name="value"
         data-testid="value-input"
         value={ expense.value }
         onChange={ handleInputChange }
       />
       <input
         type="text"
+        name="description"
         data-testid="description-input"
         value={ expense.description }
         onChange={ handleInputChange }
@@ -82,9 +66,9 @@ function WalletForm() {
         value={ expense.currency }
         onChange={ handleInputChange }
       >
-        {currencies.map((currencyOption) => (
-          <option key={ currencyOption.currency } value={ currencyOption.currency }>
-            {currencyOption.label}
+        {currencies.map((currency) => (
+          <option key={ currency } value={ currency }>
+            {currency}
           </option>
         ))}
       </select>
@@ -95,9 +79,9 @@ function WalletForm() {
         value={ expense.method }
         onChange={ handleInputChange }
       >
-        <option value="dinheiro">Dinheiro</option>
-        <option value="cartao de credito">Cartão de crédito</option>
-        <option value="cartao de debito">Cartão de débito</option>
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Cartão de crédito">Cartão de crédito</option>
+        <option value="Cartão de débito">Cartão de débito</option>
       </select>
 
       <select
@@ -106,11 +90,11 @@ function WalletForm() {
         value={ expense.tag }
         onChange={ handleInputChange }
       >
-        <option value="alimentacao">Alimentação</option>
-        <option value="lazer">Lazer</option>
-        <option value="trabalho">Trabalho</option>
-        <option value="transporte">Transporte</option>
-        <option value="saude">Saúde</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Trabalho">Trabalho</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Saúde">Saúde</option>
       </select>
       <button onClick={ handleClick }>Adicionar despesa</button>
     </div>
