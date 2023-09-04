@@ -1,17 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import RootState from '../types';
+import Header from '../components/Header';
 
 function Wallet() {
-  const userEmail = useSelector((state: RootState) => state.user.email);
-
   return (
-    <header>
-      <p>
-        {`Bem-vindo, 
-        ${userEmail}`}
-      </p>
-    </header>
+    <div>
+      <Header />
+      <input type="number" />
+    </div>
   );
 }
 
