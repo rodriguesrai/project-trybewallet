@@ -1,4 +1,4 @@
-type RootState = {
+export type RootState = {
   user: {
     email: string;
   };
@@ -10,4 +10,12 @@ type RootState = {
   };
 };
 
-export default RootState;
+export type Expense = {
+  id: number;
+  value: number;
+  currency: string;
+  method: string;
+  tag: string;
+  description: string;
+  exchangeRates: { [key: string]: number };
+};

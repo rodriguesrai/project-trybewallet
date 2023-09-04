@@ -1,4 +1,8 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
+
+import { Expense } from '../../types';
+import { ADD_EXPENSE } from '../actions';
+
 // wallet.ts
 const INITIAL_STATE = {
   currencies: [], // Inicialmente, a lista de moedas está vazia
@@ -7,9 +11,20 @@ const INITIAL_STATE = {
   idToEdit: 0, // Inicialmente, o ID para editar é 0
 };
 
-const walletReducer = (state = INITIAL_STATE, action) => {
+type ActionTypeWallet = {
+  type: string;
+  payload: any;
+};
+
+const walletReducer = (state = INITIAL_STATE, action: ActionTypeWallet) => {
   switch (action.type) {
-    // Defina as ações relacionadas à carteira aqui, como adicionar ou editar despesas, ativar o modo de edição, etc.
+    case ADD_EXPENSE: {
+      const newExpense: Expense = action.payload;
+      return {
+        ...state,
+        expenses: [...state.expenses, newExpense],
+      };
+    }
     default:
       return state;
   }
