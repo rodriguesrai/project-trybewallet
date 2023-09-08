@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addExpense } from '../redux/actions';
 import { RootState } from '../types';
 import useFetchCurrencies from './effects/fetchCurrencies';
+import { fetchExchangeRate } from './effects/fetchExchangeRate';
 
 function WalletForm() {
   const dispatch = useDispatch();
@@ -13,9 +14,9 @@ function WalletForm() {
     method: 'Dinheiro',
     tag: 'Alimentação',
   });
-  // const [id, setId] = useState(1);
   useFetchCurrencies();
   const currencies = useSelector((state: RootState) => state.wallet.currencies);
+  const [expenseId, setExpenseId] = useState(0);
 
   type TargetType = React.
     ChangeEvent<HTMLInputElement | HTMLSelectElement >;
@@ -27,22 +28,35 @@ function WalletForm() {
       [name]: value,
     });
   };
-  const handleClick = () => {
+
+  const handleClick = async () => {
     const newExpense = {
+      id: expenseId,
       value: expense.value,
       currency: expense.currency,
       method: expense.method,
       tag: expense.tag,
       description: expense.description,
     };
-    dispatch(addExpense(newExpense));
-    setExpense({
-      value: '',
-      description: '',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
-    });
+    try {
+      const exchangeRateResponse = await fetchExchangeRate(newExpense);
+      const expenseWithExchangeRate = {
+        ...newExpense,
+        exchangeRates: exchangeRateResponse.exchangeRates,
+
+      };
+      dispatch(addExpense(expenseWithExchangeRate));
+      setExpenseId(expenseId + 1);
+      setExpense({
+        value: '',
+        description: '',
+        currency: 'USD',
+        method: 'Dinheiro',
+        tag: 'Alimentação',
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <div>

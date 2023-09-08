@@ -4,7 +4,7 @@ export type RootState = {
   };
   wallet: {
     currencies: string[];
-    expenses: any[]; // Substitua "any[]" pelo tipo apropriado das despesas
+    expenses: any[];
     editor: boolean;
     idToEdit: number;
   };
