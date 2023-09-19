@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(236, 231, 231);
+}
+.input {
+  width: 400px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #b4cdec;
+}
+.input::placeholder {
+  color: #6490ca;
+}

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { RootState } from '../types';
+import style from './Header.module.css';
 
 function Header() {
   const userEmail = useSelector((state: RootState) => state.user.email);
@@ -21,13 +22,15 @@ function Header() {
   }, [expenses]);
 
   return (
-    <header>
+    <header className={ style.header }>
       <p data-testid="email-field">
         {`Bem-vindo, ${userEmail}`}
       </p>
-      <p>Despesa Total:</p>
-      <p data-testid="total-field">{totalExpenses.toFixed(2)}</p>
-      <p data-testid="header-currency-field">BRL</p>
+      <div className={ style.expenseContainer }>
+        <p>Despesa Total:</p>
+        <p data-testid="total-field">{totalExpenses.toFixed(2)}</p>
+        <p data-testid="header-currency-field">BRL</p>
+      </div>
     </header>
   );
 }

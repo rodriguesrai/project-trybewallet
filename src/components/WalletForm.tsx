@@ -4,6 +4,7 @@ import { addExpense } from '../redux/actions';
 import { RootState } from '../types';
 import useFetchCurrencies from './effects/fetchCurrencies';
 import { fetchExchangeRate } from './effects/fetchExchangeRate';
+import style from './WalletForm.module.css';
 
 function WalletForm() {
   const dispatch = useDispatch();
@@ -59,21 +60,25 @@ function WalletForm() {
     }
   };
   return (
-    <div>
-      <input
-        type="number"
-        name="value"
-        data-testid="value-input"
-        value={ expense.value }
-        onChange={ handleInputChange }
-      />
-      <input
-        type="text"
-        name="description"
-        data-testid="description-input"
-        value={ expense.description }
-        onChange={ handleInputChange }
-      />
+    <div className={ style.container }>
+      <div>
+        <input
+          type="number"
+          name="value"
+          data-testid="value-input"
+          value={ expense.value }
+          onChange={ handleInputChange }
+          className={ style.input }
+        />
+        <input
+          type="text"
+          name="description"
+          data-testid="description-input"
+          value={ expense.description }
+          onChange={ handleInputChange }
+          className={ style.input }
+        />
+      </div>
       <select
         name="currency"
         data-testid="currency-input"

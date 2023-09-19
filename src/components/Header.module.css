@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #818db1; /* Cor de fundo */
+  color: #000000; /* Cor do texto */
+  text-align: center; /* Alinha o texto no centro */
+  padding: 3px; /* Adiciona espaçamento interno */
+  width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
+}
+.expenseContainer {
+  display: flex;
+  width: 200px;
+}
+
+.expenseContainer p:nth-child(1) {
+  margin-right: 15px;
+}
+.expenseContainer p:nth-child(2) {
+  margin-right: 15px;
+}

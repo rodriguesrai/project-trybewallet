@@ -1,0 +1,68 @@
+.mainContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/home/rairodrigues/Documentos/Projetos/sd-033-a-project-trybewallet-ts/src/img/background.jpg');
+  background-size: cover;
+}
+.flexContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(236, 231, 231);
+  padding: 50px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #8eb2f7;
+  width: 30vh;
+  height: 20vh;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  max-width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #b4cdec;
+}
+input::placeholder {
+  color: #6490ca;
+}
+button:enabled {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+}
+button:enabled:hover {
+  background-color: #0056b3;
+}
+button:disabled {
+  background-color: #ccc;
+  color: #555;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+}
+button:disabled:hover {
+  background-color: #ccc;
+}
+
+h2 {
+  font-size: 30px;
+  color: #6490ca;
+  margin-bottom: 20px;
+}

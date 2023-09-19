@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import style from './Login.module.css';
 import { addEmail } from '../redux/actions';
 
 function Login() {
@@ -17,23 +18,28 @@ function Login() {
   const buttonDisabled = password.length <= 5 || !email.match(/^\S+@\S+\.\S+$/);
 
   return (
-    <div>
-      <input
-        type="email"
-        placeholder="E-mail"
-        data-testid="email-input"
-        value={ email }
-        onChange={ (e) => setEmail(e.target.value) }
-      />
-      <input
-        type="password"
-        placeholder="Senha"
-        data-testid="password-input"
-        value={ password }
-        onChange={ (e) => setPassword(e.target.value) }
-      />
-      <button disabled={ buttonDisabled } onClick={ handleLogin }>Entrar</button>
+
+    <div className={ style.mainContainer }>
+      <div className={ style.flexContainer }>
+        <h2>Carteira</h2>
+        <input
+          type="email"
+          placeholder="E-mail"
+          data-testid="email-input"
+          value={ email }
+          onChange={ (e) => setEmail(e.target.value) }
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          data-testid="password-input"
+          value={ password }
+          onChange={ (e) => setPassword(e.target.value) }
+        />
+        <button disabled={ buttonDisabled } onClick={ handleLogin }>Entrar</button>
+      </div>
     </div>
+
   );
 }
 
