@@ -23,6 +23,14 @@ function Header() {
 
   return (
     <header className={ style.header }>
+      <div className={ style.logoContainer }>
+        <img
+          src="src/img/╓cone Calculadora.png"
+          alt="calculadora"
+          className={ style.img }
+        />
+        <h2 className={ style.h2 }>Finance APP</h2>
+      </div>
       <p data-testid="email-field">
         {`Bem-vindo, ${userEmail}`}
       </p>

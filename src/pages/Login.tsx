@@ -21,7 +21,14 @@ function Login() {
 
     <div className={ style.mainContainer }>
       <div className={ style.flexContainer }>
-        <h2>Carteira</h2>
+        <div className={ style.logoContainer }>
+          <img
+            src="src/img/╓cone Calculadora.png"
+            alt="calculadora"
+            className={ style.img }
+          />
+          <h2>Finance APP</h2>
+        </div>
         <input
           type="email"
           placeholder="E-mail"
@@ -29,6 +36,7 @@ function Login() {
           value={ email }
           onChange={ (e) => setEmail(e.target.value) }
         />
+
         <input
           type="password"
           placeholder="Senha"

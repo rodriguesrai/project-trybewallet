@@ -1,12 +1,15 @@
 .header {
   display: flex;
   justify-content: space-around;
-  background-color: #818db1; /* Cor de fundo */
-  color: #000000; /* Cor do texto */
-  text-align: center; /* Alinha o texto no centro */
-  padding: 3px; /* Adiciona espaçamento interno */
+  align-items: center;
+  background-color: #818db1;
+  color: #000000;
+  padding: 3px;
   width: 100%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
+  border: 1px solid #8eb2f7;
+  position: fixed;
+  
 }
 .expenseContainer {
   display: flex;
@@ -14,8 +17,29 @@
 }
 
 .expenseContainer p:nth-child(1) {
-  margin-right: 15px;
+  margin-right: 8px;
+  white-space: nowrap;
 }
 .expenseContainer p:nth-child(2) {
-  margin-right: 15px;
+  margin-right: 5px;
+}
+
+.h2 {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-size: 16px;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center
 }

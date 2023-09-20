@@ -60,62 +60,68 @@ function WalletForm() {
     }
   };
   return (
-    <div className={ style.container }>
-      <div>
-        <input
-          type="number"
-          name="value"
-          data-testid="value-input"
-          value={ expense.value }
-          onChange={ handleInputChange }
-          className={ style.input }
-        />
-        <input
-          type="text"
-          name="description"
-          data-testid="description-input"
-          value={ expense.description }
-          onChange={ handleInputChange }
-          className={ style.input }
-        />
+    <div className={ style.mainContainer }>
+      <div className={ style.container }>
+        <div>
+          <input
+            type="number"
+            name="value"
+            data-testid="value-input"
+            value={ expense.value }
+            onChange={ handleInputChange }
+            className={ style.input }
+            placeholder="Valor da despesa"
+          />
+          <input
+            type="text"
+            name="description"
+            data-testid="description-input"
+            value={ expense.description }
+            onChange={ handleInputChange }
+            className={ style.input }
+            placeholder="Descrição da despesa"
+          />
+        </div>
+        <div className={ style.selectContainer }>
+          <select
+            name="currency"
+            data-testid="currency-input"
+            value={ expense.currency }
+            onChange={ handleInputChange }
+          >
+            {currencies.map((currency) => (
+              <option key={ currency } value={ currency }>
+                {currency}
+              </option>
+            ))}
+          </select>
+
+          <select
+            name="method"
+            data-testid="method-input"
+            value={ expense.method }
+            onChange={ handleInputChange }
+          >
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Cartão de crédito">Cartão de crédito</option>
+            <option value="Cartão de débito">Cartão de débito</option>
+          </select>
+
+          <select
+            name="tag"
+            data-testid="tag-input"
+            value={ expense.tag }
+            onChange={ handleInputChange }
+          >
+            <option value="Alimentação">Alimentação</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Saúde">Saúde</option>
+          </select>
+        </div>
+        <button onClick={ handleClick }>Adicionar despesa</button>
       </div>
-      <select
-        name="currency"
-        data-testid="currency-input"
-        value={ expense.currency }
-        onChange={ handleInputChange }
-      >
-        {currencies.map((currency) => (
-          <option key={ currency } value={ currency }>
-            {currency}
-          </option>
-        ))}
-      </select>
-
-      <select
-        name="method"
-        data-testid="method-input"
-        value={ expense.method }
-        onChange={ handleInputChange }
-      >
-        <option value="Dinheiro">Dinheiro</option>
-        <option value="Cartão de crédito">Cartão de crédito</option>
-        <option value="Cartão de débito">Cartão de débito</option>
-      </select>
-
-      <select
-        name="tag"
-        data-testid="tag-input"
-        value={ expense.tag }
-        onChange={ handleInputChange }
-      >
-        <option value="Alimentação">Alimentação</option>
-        <option value="Lazer">Lazer</option>
-        <option value="Trabalho">Trabalho</option>
-        <option value="Transporte">Transporte</option>
-        <option value="Saúde">Saúde</option>
-      </select>
-      <button onClick={ handleClick }>Adicionar despesa</button>
     </div>
   );
 }

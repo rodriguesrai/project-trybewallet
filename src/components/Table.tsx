@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../types';
+import style from './Table.module.css';
 
 export default function Table() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
   return (
-    <div>
-      <table>
+    <div className={ style.divTable }>
+      <table className={ style.table }>
         <thead>
           <tr>
             <th>Descrição</th>

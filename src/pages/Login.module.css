@@ -19,6 +19,12 @@
   width: 30vh;
   height: 20vh;
 }
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
 input {
   width: 100%;
   padding: 8px;
@@ -65,4 +71,11 @@ h2 {
   font-size: 30px;
   color: #6490ca;
   margin-bottom: 20px;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
