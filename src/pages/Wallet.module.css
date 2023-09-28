@@ -1,7 +1,17 @@
-.mainContainer {
+body {
   height: 100vh;
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  margin: 0;
+}
+
+.mainContainer {
   display: flex;
   flex-direction: column;
-  background-image: url('/home/rairodrigues/Documentos/Projetos/sd-033-a-project-trybewallet-ts/src/img/background.jpg');
+  max-height: 100vh; /* Define uma altura máxima para a .mainContainer */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+  background-image: url('../img/background.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }
+
