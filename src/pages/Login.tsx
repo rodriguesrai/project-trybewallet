@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import style from './Login.module.css';
@@ -7,15 +7,27 @@ import { addEmail } from '../redux/actions';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const isDisabled = password.length <= 5 || !email.match(/^\S+@\S+\.\S+$/);
+    setButtonDisabled(isDisabled);
+  }, [email, password]);
 
   const handleLogin = () => {
     dispatch(addEmail(email));
     navigate('/carteira');
   };
 
-  const buttonDisabled = password.length <= 5 || !email.match(/^\S+@\S+\.\S+$/);
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
 
   return (
 
@@ -34,7 +46,7 @@ function Login() {
           placeholder="E-mail"
           data-testid="email-input"
           value={ email }
-          onChange={ (e) => setEmail(e.target.value) }
+          onChange={ handleEmailChange }
         />
 
         <input
@@ -42,7 +54,7 @@ function Login() {
           placeholder="Senha"
           data-testid="password-input"
           value={ password }
-          onChange={ (e) => setPassword(e.target.value) }
+          onChange={ handlePasswordChange }
         />
         <button disabled={ buttonDisabled } onClick={ handleLogin }>Entrar</button>
       </div>

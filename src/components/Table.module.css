@@ -3,13 +3,13 @@
   justify-content: center;
 }
 
-table {
-  margin-top: 20px;
-  border-collapse: collapse;
-  width: 70%;
-  font-family: Arial, sans-serif;
-  border: 2px solid #007bff;
+.table {
   background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #007bff;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+  width: 70%;
 }
 
 th, td {
@@ -36,12 +36,12 @@ tbody tr:hover {
 }
 
 button {
-  padding: 4px 8px;
-  margin: 2px;
   background-color: #007bff;
-  color: #fff;
   border: none;
+  color: #fff;
   cursor: pointer;
+  margin: 2px;
+  padding: 4px 8px;
 }
 
 button:hover {

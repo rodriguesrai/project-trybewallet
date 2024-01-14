@@ -6,36 +6,36 @@
   margin-top: 58px;
 }
 .container {
+  align-items: center;
+  background-color: rgb(236, 231, 231);
+  border-radius: 0 0 30px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: rgb(236, 231, 231);
   width: 85%;
-  border-radius: 0 0 30px 30px;
 }
 .container input:nth-child(1) {
   margin-right: 10px;
 }
 
 .selectContainer {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-bottom: 10px;
 }
 .selectContainer select {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
   border: 1px solid #b4cdec;
+  box-sizing: border-box;
   margin-right: 10px;
+  padding: 8px;
+  width: 100%;
 }
 .input {
-  width: 400px;
-  padding: 8px;
-  box-sizing: border-box;
   border: 1px solid #b4cdec;
+  box-sizing: border-box;
+  padding: 8px;
+  width: 400px;
 }
 .input::placeholder {
   color: #6490ca;

@@ -1,7 +1,9 @@
 .mainContainer {
-  height: 100vh;
+  background-attachment: fixed;
+  background-image: url('/home/rairodrigues/Documentos/Projetos/sd-033-a-project-trybewallet-ts/src/img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  background-image: url('/home/rairodrigues/Documentos/Projetos/sd-033-a-project-trybewallet-ts/src/img/background.jpg');
-  background-size: cover;
+  height: 100%;
 }

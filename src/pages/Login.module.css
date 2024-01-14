@@ -1,81 +1,82 @@
 .mainContainer {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-image: url('/home/rairodrigues/Documentos/Projetos/sd-033-a-project-trybewallet-ts/src/img/background.jpg');
   background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
 }
 .flexContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: rgb(236, 231, 231);
-  padding: 50px; 
+  border: 1px solid #8eb2f7;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #8eb2f7;
-  width: 30vh;
+  display: flex;
+  flex-direction: column;
   height: 20vh;
+  justify-content: center;
+  padding: 50px;
+  width: 30vh;
 }
 
 .logoContainer {
   display: flex;
   justify-content: center;
+
   align-items: center
 }
 input {
-  width: 100%;
-  padding: 8px;
+  border: 1px solid #b4cdec;
+  box-sizing: border-box;
   margin-bottom: 10px;
   margin-top: 5px;
   max-width: 300px;
-  box-sizing: border-box;
-  border: 1px solid #b4cdec;
+  padding: 8px;
+  width: 100%;
 }
 input::placeholder {
   color: #6490ca;
 }
 button:enabled {
   background-color: #007bff;
-  color: #ffffff;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
   margin-top: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
 }
 button:enabled:hover {
   background-color: #0056b3;
 }
 button:disabled {
   background-color: #ccc;
-  color: #555;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
-  cursor: not-allowed;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #555;
+  cursor: not-allowed;
+  font-size: 16px;
   margin-top: 8px;
+  padding: 10px 20px;
 }
 button:disabled:hover {
   background-color: #ccc;
 }
 
 h2 {
-  font-size: 30px;
   color: #6490ca;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
 .img {
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
+  height: 50px;
   margin-right: 10px;
+  width: 50px;
 }
