@@ -1,6 +1,6 @@
 .mainContainer {
   align-items: center;
-  background-image: url('/home/rairodrigues/Documentos/Projetos/sd-033-a-project-trybewallet-ts/src/img/background.jpg');
+  background-image: url('../img/background.jpg');
   background-size: cover;
   display: flex;
   height: 100vh;
